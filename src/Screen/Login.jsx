@@ -4,7 +4,6 @@ import { MdVisibility } from "react-icons/md";
 import img from "./../assets/loginImg.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { GoogleLogin } from 'react-google-login';
 
 const Login = () => {
   const navigate = useNavigate();
