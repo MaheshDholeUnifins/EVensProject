@@ -69,7 +69,7 @@ const Form = () => {
     console.log(enquiryData)
     if(enquiryValidate()){
       try {
-        const res = await axios.post('http://localhost:8000/api/v1/enquiry',
+        const res = await axios.post('https://backend-ssx7.onrender.com/api/v1/enquiry',
           enquiryData,
           {
             headers: {

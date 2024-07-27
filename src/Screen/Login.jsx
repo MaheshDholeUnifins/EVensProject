@@ -52,7 +52,7 @@ const Login = () => {
     console.log("data received");
     if (validate()) {
       try {
-        const res = await axios.post("http://localhost:8000/api/v1/login", formData, {
+        const res = await axios.post("https://backend-ssx7.onrender.com/api/v1/login", formData, {
           headers: {
             "Content-Type": "application/json",
           },

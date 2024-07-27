@@ -60,7 +60,7 @@ const Registration = () => {
     if (validate()) {
       try {
         const res = await axios.post(
-          "http://localhost:8000/api/v1/register",
+          "https://backend-ssx7.onrender.com/api/v1/register",
           formData,
           {
             headers: {
@@ -104,7 +104,7 @@ const Registration = () => {
       }
       console.log(sendMailData);
 
-      const otpResponse = await axios.post("http://localhost:8000/api/v1/sendotp",
+      const otpResponse = await axios.post("https://backend-ssx7.onrender.com/api/v1/sendotp",
         sendMailData,
         {
           headers : {
@@ -141,7 +141,7 @@ const Registration = () => {
         };
 
         const verifyOtp = await axios.post(
-            "http://localhost:8000/api/v1/verifyOtp",
+            "https://backend-ssx7.onrender.com/api/v1/verifyOtp",
             data,
             {
                 headers: {
