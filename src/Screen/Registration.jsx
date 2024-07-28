@@ -108,7 +108,7 @@ const Registration = () => {
         sendMailData,
         {
           headers : {
-            "Content-Type" : "application/json",
+            "Content-Type" : "application/x-www-form-urlencoded",
           }
         }
       );
@@ -145,7 +145,7 @@ const Registration = () => {
             data,
             {
                 headers: {
-                    "Content-Type": "application/json",
+                    "Content-Type": "application/x-www-form-urlencoded",
                 }
             }
         );
