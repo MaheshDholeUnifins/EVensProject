@@ -66,6 +66,7 @@ const Registration = () => {
             headers: {
               "Content-Type": "application/x-www-form-urlencoded",
             },
+            withCredentials: true
           }
         );
 
@@ -109,7 +110,8 @@ const Registration = () => {
         {
           headers : {
             "Content-Type" : "application/x-www-form-urlencoded",
-          }
+          },
+           withCredentials: true
         }
       );
       if(otpResponse.status === 422){
@@ -146,7 +148,8 @@ const Registration = () => {
             {
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
-                }
+                },
+               withCredentials: true
             }
         );
 
