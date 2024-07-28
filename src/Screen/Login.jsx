@@ -52,13 +52,23 @@ const Login = () => {
     console.log("data received");
     if (validate()) {
       try {
-        const res = await axios.post("https://backend-ssx7.onrender.com/api/v1/login", formData, {
+        // const res = await axios("https://backend-ssx7.onrender.com/api/v1/login", formData, {
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   withCredentials: true
+        //   },
+        // );
+        const res = await axios({
+          baseURL: "https://backend-ssx7.onrender.com",
+          url : "/api/v1/login",
+          data : formData,
+          method : "post",
           headers: {
             "Content-Type": "application/json",
           },
           withCredentials: true
-          },
-        );
+        });
 
         if (res.status === 201) {
           console.log(res.status);
