@@ -56,8 +56,9 @@ const Login = () => {
           headers: {
             "Content-Type": "application/json",
           },
+          withCredentials: true
           },
-        { withCredentials: true });
+        );
 
         if (res.status === 201) {
           console.log(res.status);
