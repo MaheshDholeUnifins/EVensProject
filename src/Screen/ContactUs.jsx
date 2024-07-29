@@ -9,15 +9,15 @@ import { useNavigate } from "react-router-dom";
 const ContactUs = () => {
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    if(!localStorage.getItem('authToken')){
-      navigate('/login');
-    }
-  },[navigate])
+  // useEffect(()=>{
+  //   if(!localStorage.getItem('authToken')){
+  //     navigate('/login');
+  //   }
+  // },[navigate])
 
-  if(!localStorage.getItem('authToken')){
-    return null;;
-  }
+  // if(!localStorage.getItem('authToken')){
+  //   return null;;
+  // }
 
   return (
     <div>
