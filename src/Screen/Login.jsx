@@ -59,19 +59,8 @@ const Login = () => {
         //   withCredentials: true
         //   },
         // );
-        // const res = await axios({
-        //   baseURL: "https://backend-ssx7.onrender.com",
-        //   url : "/api/v1/login",
-        //   data : formData,
-        //   method : "post",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   withCredentials: true
-        // });
-
         const res = await axios({
-          baseURL: "http://localhost:8000",
+          baseURL: "https://backend-ssx7.onrender.com",
           url : "/api/v1/login",
           data : formData,
           method : "post",
@@ -80,6 +69,17 @@ const Login = () => {
           },
           withCredentials: true
         });
+
+        // const res = await axios({
+        //   baseURL: "http://localhost:8000",
+        //   url : "/api/v1/login",
+        //   data : formData,
+        //   method : "post",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   withCredentials: true
+        // });
 
         if (res.status === 201) {
           console.log(res.status);
