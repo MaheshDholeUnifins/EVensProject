@@ -58,38 +58,43 @@ const Registration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
-      try {
-        const res = await axios.post(
-          "https://backend-ssx7.onrender.com/api/v1/register",
-          formData,
-          {
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            withCredentials: true
-          }
-        );
+      // try {
+      //   const res = await axios.post(
+      //     "https://backend-ssx7.onrender.com/api/v1/register",
+      //     formData,
+      //     {
+      //       headers: {
+      //         "Content-Type": "application/x-www-form-urlencoded",
+      //       },
+      //       withCredentials: true
+      //     }
+      //   );
 
-        if (res.status === 201) {
-          setMessage("Account Created successfully!");
-          setFormData({
-            name: "",
-            email: "",
-            password: "",
-          });
-          setTimeout(() => {
+      //   if (res.status === 201) {
+      //     setMessage("Account Created successfully!");
+      //     setFormData({
+      //       name: "",
+      //       email: "",
+      //       password: "",
+      //     });
+      //     setTimeout(() => {
+      //       setMessage("");
+      //       navigate("/login");
+      //     }, 2000);
+      //   }
+      // } catch (error) {
+      //   console.error("Error submitting form: ", error.response || error.message);
+      //   if (error.response && error.response.status === 422) {
+      //     setMessage("Email already exists.");
+      //   } else {
+      //     setMessage("Error submitting form.");
+      //   }
+      // }
+
+      setTimeout(() => {
             setMessage("");
             navigate("/login");
           }, 2000);
-        }
-      } catch (error) {
-        console.error("Error submitting form: ", error.response || error.message);
-        if (error.response && error.response.status === 422) {
-          setMessage("Email already exists.");
-        } else {
-          setMessage("Error submitting form.");
-        }
-      }
     }
   };
 
@@ -133,46 +138,46 @@ const Registration = () => {
 
   }
 
-  const handleVerify = async (e) => {
-    e.preventDefault();
+  // const handleVerify = async (e) => {
+  //   e.preventDefault();
 
-    try {
-        const data = {
-            email: formData.email,
-            otp: otp
-        };
+    // try {
+    //     const data = {
+    //         email: formData.email,
+    //         otp: otp
+    //     };
 
-        const verifyOtp = await axios.post(
-            "https://backend-ssx7.onrender.com/api/v1/verifyOtp",
-            data,
-            {
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-               withCredentials: true
-            }
-        );
+    //     const verifyOtp = await axios.post(
+    //         "https://backend-ssx7.onrender.com/api/v1/verifyOtp",
+    //         data,
+    //         {
+    //             headers: {
+    //                 "Content-Type": "application/x-www-form-urlencoded",
+    //             },
+    //            withCredentials: true
+    //         }
+        // );
 
-        if (verifyOtp.status === 200) {
-            console.log(verifyOtp.data.message);
-            setVerify(true);
-            setErrors({
-                email: verifyOtp.data.message
-            });
-            setOtp('');
-        } else {
-            console.log(verifyOtp.data);
-            setErrors({
-                email: verifyOtp.data.message
-            });
-        }
-    } catch (error) {
-        console.error("Error verifying OTP:", error);
-        setErrors({
-            email: "Invalid OTP. Please try again."
-        });
-    }
-};
+//         if (verifyOtp.status === 200) {
+//             console.log(verifyOtp.data.message);
+//             setVerify(true);
+//             setErrors({
+//                 email: verifyOtp.data.message
+//             });
+//             setOtp('');
+//         } else {
+//             console.log(verifyOtp.data);
+//             setErrors({
+//                 email: verifyOtp.data.message
+//             });
+//         }
+//     } catch (error) {
+//         console.error("Error verifying OTP:", error);
+//         setErrors({
+//             email: "Invalid OTP. Please try again."
+//         });
+//     }
+// };
 
   return (
     <div className="flex justify-center items-center flex-col md:justify-center md:items-center md:flex-row gap-8 md:gap-8 lg:gap-16 py-8 px-10 md:py-36 md:px-16 lg:px-0 lg:py-40 ">
