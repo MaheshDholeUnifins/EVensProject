@@ -51,24 +51,18 @@ const Login = () => {
 
     console.log("data received");
     if (validate()) {
-      try {
-        // const res = await axios("https://backend-ssx7.onrender.com/api/v1/login", formData, {
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   withCredentials: true
-        //   },
-        // );
-        const res = await axios({
-          baseURL: "https://backend-ssx7.onrender.com",
-          url : "/api/v1/login",
-          data : formData,
-          method : "post",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true
-        });
+      // try {
+        
+      //   const res = await axios({
+      //     baseURL: "https://backend-ssx7.onrender.com",
+      //     url : "/api/v1/login",
+      //     data : formData,
+      //     method : "post",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     withCredentials: true
+      //   });
 
         // const res = await axios({
         //   baseURL: "http://localhost:8000",
@@ -81,31 +75,36 @@ const Login = () => {
         //   withCredentials: true
         // });
 
-        if (res.status === 201) {
-          console.log(res.status);
-          console.log("Response data" +res.data.message);
-          localStorage.setItem("authToken",res.data.authToken);
-          localStorage.setItem("userEmail",res.data.userEmail);
-          console.log(localStorage.getItem("authToken"));
-          console.log(localStorage.getItem("userEmail"));
-          setMessage("Login successfully!");
-          setFormData({
-            email: "",
-            password: "",
-          });
+      //   if (res.status === 201) {
+      //     console.log(res.status);
+      //     console.log("Response data" +res.data.message);
+      //     localStorage.setItem("authToken",res.data.authToken);
+      //     localStorage.setItem("userEmail",res.data.userEmail);
+      //     console.log(localStorage.getItem("authToken"));
+      //     console.log(localStorage.getItem("userEmail"));
+      //     setMessage("Login successfully!");
+      //     setFormData({
+      //       email: "",
+      //       password: "",
+      //     });
+      //     setTimeout(() => {
+      //       setMessage("");
+      //       navigate("/");
+      //     }, 2000);
+      //   }
+      // } catch (error) {
+      //   console.error("Error submitting form: ", error.response || error.message);
+      //   if (error.response && error.response.status === 400) {
+      //     setMessage("Invalid Credential.");
+      //   } else {
+      //     setMessage("Error submitting form.");
+      //   }
+      // }
+
           setTimeout(() => {
             setMessage("");
             navigate("/");
           }, 2000);
-        }
-      } catch (error) {
-        console.error("Error submitting form: ", error.response || error.message);
-        if (error.response && error.response.status === 400) {
-          setMessage("Invalid Credential.");
-        } else {
-          setMessage("Error submitting form.");
-        }
-      }
     }
   };
 
