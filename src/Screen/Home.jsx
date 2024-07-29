@@ -21,15 +21,15 @@ const Home = () => {
   useEffect(() => {
     AOS.init({ duration: 3000 });
   }, []);
-  useEffect(()=>{
-    if(!localStorage.getItem('authToken')){
-      navigate('/login');
-    }
-  },[navigate])
+  // useEffect(()=>{
+  //   if(!localStorage.getItem('authToken')){
+  //     navigate('/login');
+  //   }
+  // },[navigate])
 
-  if(!localStorage.getItem('authToken')){
-    return null;;
-  }
+  // if(!localStorage.getItem('authToken')){
+  //   return null;;
+  // }
 
   return (
     <div>
