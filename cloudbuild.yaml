@@ -1,6 +1,5 @@
 options:
   logging: CLOUD_LOGGING_ONLY  # Sends logs to Cloud Logging (Fix)
-  logsBucket: "gs://your-bucket-name"  # Optional: Use a GCS bucket for logs
 
 steps:
   - name: 'gcr.io/cloud-builders/npm'
