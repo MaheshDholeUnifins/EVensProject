@@ -4,7 +4,7 @@ options:
 steps:
   # Install dependencies with execution permissions
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['install', '--unsafe-perm']
+    args: ['install', '--unsafe-perm','--verbose']
 
   # Fix file permissions for Vite before running the build
   - name: 'gcr.io/cloud-builders/npm'
