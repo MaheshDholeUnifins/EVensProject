@@ -2,27 +2,27 @@ options:
   logging: CLOUD_LOGGING_ONLY  # Sends logs to Cloud Logging
 
 steps:
-  # Install dependencies with execution permissions
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['install', '--unsafe-perm','--verbose']
-
-  # Fix file permissions for Vite before running the build
+  # Remove cached dependencies to avoid issues
   - name: 'gcr.io/cloud-builders/npm'
     entrypoint: bash
     args:
       - '-c'
-      - 'chmod +x node_modules/.bin/vite'
+      - 'rm -rf node_modules package-lock.json && npm cache clean --force'
 
-  # Build the React app
+  # Install dependencies
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install', '--legacy-peer-deps']
+
+  # Ensure permissions are correct for node_modules (only if needed)
+  - name: 'gcr.io/cloud-builders/npm'
+    entrypoint: bash
+    args:
+      - '-c'
+      - 'chmod -R 777 node_modules'
+
+  # Build the React project
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']
-
-  # Use Google Cloud Buildpacks (Ensure correct image reference)
-  - name: 'gcr.io/k8s-skaffold/pack'
-    args:
-      - 'build'
-      - 'gcr.io/micro-shift-449410-a1/react-app'  # Use $PROJECT_ID instead of hardcoding
-      - '--builder=gcr.io/buildpacks/builder:v1'
 
   # Deploy to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
